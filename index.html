@@ -1647,11 +1647,368 @@
       }
     }
 
+  
+/* =====================================================
+   SPOTIFY-STYLE MUSIC PLAYER
+   ===================================================== */
+
+.music-player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  margin: 0;
+  padding: 12px 24px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border: 1px solid rgba(189,49,147,.14);
+  border-radius: 18px 18px 0 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(253,242,248,.98));
+  box-shadow: 0 -8px 35px rgba(189,49,147,.16);
+  text-align: left;
+  backdrop-filter: blur(14px);
+}
+
+.music-player-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.music-cover {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold));
+  color: #fff;
+  font-size: 25px;
+  box-shadow: 0 8px 25px rgba(189,49,147,.22);
+}
+
+.music-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.music-title {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-artist {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-playlist-btn {
+  border: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 19px;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.music-playlist-btn:hover {
+  transform: scale(1.06);
+  background: rgba(189,49,147,.18);
+}
+
+.music-progress-row {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.music-time {
+  color: var(--muted);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.music-progress,
+.music-volume {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.music-control {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.music-control:hover {
+  transform: scale(1.08);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.music-control-main {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 8px 24px rgba(189,49,147,.28);
+}
+
+.music-control-main:hover {
+  background: var(--accent2);
+  color: #fff;
+}
+
+.music-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.music-volume-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: min(170px, 45%);
+}
+
+.music-volume-icon {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.music-shuffle.active,
+.music-repeat.active {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.music-playlist {
+  display: none;
+  margin-top: 14px;
+  padding: 8px;
+  max-height: 230px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.82);
+}
+
+.music-playlist.open {
+  display: block;
+}
+
+.music-track {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.music-track:hover {
+  background: var(--accent-soft);
+}
+
+.music-track.active {
+  background: rgba(189,49,147,.12);
+  color: var(--accent);
+}
+
+.music-track-number {
+  width: 20px;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.music-track-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.music-track-name,
+.music-track-artist {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.music-track-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.music-track-artist {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.music-note {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .music-player {
+    padding: 10px 12px 11px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .music-cover {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+    font-size: 21px;
+  }
+
+  .music-progress-row {
+    grid-template-columns: 36px 1fr 36px;
+    gap: 7px;
+  }
+
+  .music-volume-wrap {
+    width: 125px;
+  }
+
+  .music-control {
+    width: 34px;
+    height: 34px;
+  }
+
+  .music-control-main {
+    width: 45px;
+    height: 45px;
+  }
+}
+
   </style>
 </head>
 
 
 <body>
+<div class="music-player-page-spacer" aria-hidden="true"></div>
+
+  <!-- =====================================================
+       SPOTIFY-STYLE MUSIC PLAYER
+       Put your .mp3/.m4a/.wav files inside the GitHub Files folder.
+       Then edit the playlist in the JavaScript section below.
+  ===================================================== -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="musicAudio" preload="metadata"></audio>
+
+    <div class="music-player-top">
+      <div class="music-cover" aria-hidden="true">🎵</div>
+
+      <div class="music-info">
+        <p class="music-title" id="musicTitle">Birthday Playlist</p>
+        <p class="music-artist" id="musicArtist">Choose a song to begin</p>
+      </div>
+
+      <button
+        class="music-playlist-btn"
+        id="musicPlaylistToggle"
+        type="button"
+        aria-label="Show playlist"
+        title="Show playlist"
+      >☰</button>
+    </div>
+
+    <div class="music-progress-row">
+      <span class="music-time" id="musicCurrentTime">0:00</span>
+      <input
+        class="music-progress"
+        id="musicProgress"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+        step="0.1"
+        aria-label="Song progress"
+      >
+      <span class="music-time" id="musicDuration">0:00</span>
+    </div>
+
+    <div class="music-controls">
+      <button class="music-control music-shuffle" id="musicShuffle" type="button" aria-label="Shuffle" title="Shuffle">🔀</button>
+      <button class="music-control" id="musicPrevious" type="button" aria-label="Previous song" title="Previous song">⏮</button>
+      <button class="music-control music-control-main" id="musicPlay" type="button" aria-label="Play" title="Play">▶</button>
+      <button class="music-control" id="musicNext" type="button" aria-label="Next song" title="Next song">⏭</button>
+      <button class="music-control music-repeat" id="musicRepeat" type="button" aria-label="Repeat" title="Repeat">🔁</button>
+    </div>
+
+    <div class="music-bottom">
+      <span style="font-size:11px;color:var(--muted);">For our memories ❤️</span>
+
+      <label class="music-volume-wrap" title="Volume">
+        <span class="music-volume-icon">🔊</span>
+        <input
+          class="music-volume"
+          id="musicVolume"
+          type="range"
+          min="0"
+          max="1"
+          value="0.7"
+          step="0.01"
+          aria-label="Volume"
+        >
+      </label>
+    </div>
+
+    <div class="music-playlist" id="musicPlaylist" aria-label="Music playlist"></div>
+
+    <div class="music-note">
+      Press play to start music.
+    </div>
+  </div>
+
+
 
 
 <!-- =====================================================
@@ -3811,6 +4168,19 @@
   "
 >
 
+
+.music-player-page-spacer {
+  height: 112px;
+}
+
+@media (max-width: 600px) {
+  .music-player-page-spacer {
+    height: 175px;
+  }
+}
+
+
+
   <p>
     Made with
     <span
@@ -3843,6 +4213,273 @@
 ===================================================== -->
 
 <script>
+
+/* =====================================================
+   SPOTIFY-STYLE MUSIC PLAYER
+   ===================================================== */
+
+(function () {
+  const audio = document.getElementById("musicAudio");
+  const title = document.getElementById("musicTitle");
+  const artist = document.getElementById("musicArtist");
+  const playButton = document.getElementById("musicPlay");
+  const previousButton = document.getElementById("musicPrevious");
+  const nextButton = document.getElementById("musicNext");
+  const shuffleButton = document.getElementById("musicShuffle");
+  const repeatButton = document.getElementById("musicRepeat");
+  const progress = document.getElementById("musicProgress");
+  const currentTime = document.getElementById("musicCurrentTime");
+  const duration = document.getElementById("musicDuration");
+  const volume = document.getElementById("musicVolume");
+  const playlistToggle = document.getElementById("musicPlaylistToggle");
+  const playlistContainer = document.getElementById("musicPlaylist");
+
+  /*
+   * =====================================================
+   * YOUR SONGS
+   * =====================================================
+   *
+   * IMPORTANT:
+   * Replace these example paths with the EXACT filenames
+   * of the music files inside your GitHub "Files" folder.
+   *
+   * Example:
+   * { title: "Perfect", artist: "Ed Sheeran", src: "Files/Perfect.mp3" }
+   */
+  const playlist = [
+    {
+      title: "Our First Song",
+      artist: "Add your song / artist",
+      src: "Files/song1.mp3"
+    },
+    {
+      title: "Our Favorite Song",
+      artist: "Add your song / artist",
+      src: "Files/song2.mp3"
+    },
+    {
+      title: "A Song For You",
+      artist: "Add your song / artist",
+      src: "Files/song3.mp3"
+    }
+  ];
+
+  let currentIndex = 0;
+  let isShuffle = false;
+  let isRepeat = false;
+
+  function formatTime(seconds) {
+    if (!Number.isFinite(seconds)) return "0:00";
+
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+
+    return minutes + ":" + String(secs).padStart(2, "0");
+  }
+
+  function renderPlaylist() {
+    playlistContainer.innerHTML = "";
+
+    playlist.forEach(function (track, index) {
+      const button = document.createElement("button");
+
+      button.type = "button";
+      button.className = "music-track" + (
+        index === currentIndex ? " active" : ""
+      );
+
+      button.innerHTML = `
+        <span class="music-track-number">${index + 1}</span>
+        <span class="music-track-info">
+          <span class="music-track-name">${track.title}</span>
+          <span class="music-track-artist">${track.artist}</span>
+        </span>
+        <span>${index === currentIndex ? "♪" : ""}</span>
+      `;
+
+      button.addEventListener("click", function () {
+        loadTrack(index, true);
+      });
+
+      playlistContainer.appendChild(button);
+    });
+  }
+
+  function loadTrack(index, autoplay) {
+    if (!playlist.length) return;
+
+    currentIndex =
+      (index + playlist.length) % playlist.length;
+
+    const track = playlist[currentIndex];
+
+    audio.src = track.src;
+    audio.load();
+
+    title.textContent = track.title;
+    artist.textContent = track.artist;
+
+    progress.value = 0;
+    currentTime.textContent = "0:00";
+    duration.textContent = "0:00";
+
+    renderPlaylist();
+
+    if (autoplay) {
+      audio.play().then(function () {
+        updatePlayButton();
+      }).catch(function () {
+        updatePlayButton();
+      });
+    } else {
+      updatePlayButton();
+    }
+  }
+
+  function updatePlayButton() {
+    const playing = !audio.paused;
+
+    playButton.textContent = playing ? "⏸" : "▶";
+    playButton.setAttribute(
+      "aria-label",
+      playing ? "Pause" : "Play"
+    );
+    playButton.title = playing ? "Pause" : "Play";
+  }
+
+  function playPause() {
+    if (!audio.src) {
+      loadTrack(currentIndex, true);
+      return;
+    }
+
+    if (audio.paused) {
+      audio.play().catch(function () {});
+    } else {
+      audio.pause();
+    }
+  }
+
+  function nextTrack() {
+    if (!playlist.length) return;
+
+    let nextIndex;
+
+    if (isShuffle && playlist.length > 1) {
+      do {
+        nextIndex =
+          Math.floor(Math.random() * playlist.length);
+      } while (nextIndex === currentIndex);
+    } else {
+      nextIndex = currentIndex + 1;
+    }
+
+    loadTrack(nextIndex, true);
+  }
+
+  function previousTrack() {
+    if (!playlist.length) return;
+
+    /*
+     * Spotify-like behavior:
+     * If the song has already played for more than 3 seconds,
+     * previous goes back to the beginning of the current song.
+     */
+    if (audio.currentTime > 3) {
+      audio.currentTime = 0;
+      return;
+    }
+
+    loadTrack(currentIndex - 1, true);
+  }
+
+  playButton.addEventListener("click", playPause);
+  nextButton.addEventListener("click", nextTrack);
+  previousButton.addEventListener("click", previousTrack);
+
+  shuffleButton.addEventListener("click", function () {
+    isShuffle = !isShuffle;
+    shuffleButton.classList.toggle("active", isShuffle);
+    shuffleButton.setAttribute("aria-pressed", String(isShuffle));
+  });
+
+  repeatButton.addEventListener("click", function () {
+    isRepeat = !isRepeat;
+    repeatButton.classList.toggle("active", isRepeat);
+    repeatButton.setAttribute("aria-pressed", String(isRepeat));
+  });
+
+  playlistToggle.addEventListener("click", function () {
+    playlistContainer.classList.toggle("open");
+
+    const open =
+      playlistContainer.classList.contains("open");
+
+    playlistToggle.setAttribute(
+      "aria-label",
+      open ? "Hide playlist" : "Show playlist"
+    );
+
+    playlistToggle.title =
+      open ? "Hide playlist" : "Show playlist";
+  });
+
+  progress.addEventListener("input", function () {
+    if (!Number.isFinite(audio.duration)) return;
+
+    audio.currentTime =
+      (Number(progress.value) / 100) *
+      audio.duration;
+  });
+
+  volume.addEventListener("input", function () {
+    audio.volume = Number(volume.value);
+  });
+
+  audio.addEventListener("loadedmetadata", function () {
+    duration.textContent =
+      formatTime(audio.duration);
+  });
+
+  audio.addEventListener("timeupdate", function () {
+    if (Number.isFinite(audio.duration) && audio.duration > 0) {
+      progress.value =
+        (audio.currentTime / audio.duration) * 100;
+    }
+
+    currentTime.textContent =
+      formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener("play", updatePlayButton);
+  audio.addEventListener("pause", updatePlayButton);
+
+  audio.addEventListener("ended", function () {
+    if (isRepeat) {
+      audio.currentTime = 0;
+      audio.play().catch(function () {});
+    } else {
+      nextTrack();
+    }
+  });
+
+  audio.addEventListener("error", function () {
+    artist.textContent =
+      "Could not load this song — check the filename in the playlist.";
+    updatePlayButton();
+  });
+
+  audio.volume = Number(volume.value);
+
+  renderPlaylist();
+
+  /*
+   * Do not autoplay here.
+   * Mobile browsers commonly block autoplay with sound.
+   */
+  loadTrack(0, false);
+})();
+
 
 
 /* =====================================================
