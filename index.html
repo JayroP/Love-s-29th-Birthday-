@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0;padding:0;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  (function(){
+    var s=document.createElement('style');
+    s.textContent=':root{'+
+      '--bg:#fdf9fb;'+
+      '--card:#ffffff;'+
+      '--text:#0f172a;'+
+      '--muted:#64748b;'+
+      '--accent:#bd3193;'+
+      '--accent-soft:rgba(189,49,147,.14);'+
+      '--accent2:#0891b2;'+
+      '--accent2-soft:rgba(8,145,178,.14);'+
+      '--border:rgba(15,23,42,.07);'+
+      '--rose:#e8b4c8;'+
+      '--gold:#d4a574}'+
+      '*{box-sizing:border-box}'+
+      'body{margin:0;font-family:"Urbanist",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}'+
+      '.script{font-family:"Dancing Script",cursive}'+
+      '@keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(-120vh) rotate(360deg);opacity:0}}'+
+      '@keyframes floatSway{0%,100%{transform:translateX(0)}50%{transform:translateX(20px)}}'+
+      '@keyframes pulseHeart{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}'+
+      '@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}'+
+      '@keyframes sparkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}'+
+      '@keyframes balloonFloat{0%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-15px) rotate(3deg)}100%{transform:translateY(0) rotate(-3deg)}}'+
+      '@keyframes confettiFall{0%{transform:translateY(-100px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}'+
+      '@keyframes cakeGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(212,165,116,.4))}50%{filter:drop-shadow(0 0 20px rgba(212,165,116,.8))}}'+
+      '@keyframes flameFlicker{0%,100%{transform:scaleY(1) scaleX(1)}25%{transform:scaleY(1.1) scaleX(.9)}50%{transform:scaleY(.9) scaleX(1.1)}75%{transform:scaleY(1.05) scaleX(.95)}}'+
+      '.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}'+
+      '.heart-btn{cursor:pointer;transition:transform .2s}.heart-btn:hover{transform:scale(1.1)}.heart-btn:active{transform:scale(.95)}'+
+      '.floating-heart{position:fixed;pointer-events:none;z-index:9999;animation:floatUp 4s ease-out forwards}'+
+      '.confetti-piece{position:fixed;pointer-events:none;z-index:9998;animation:confettiFall linear forwards}'+
+      '.gradient-text{background:linear-gradient(100deg,var(--accent),#e879b5,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}'+
+      '.love-card{background:linear-gradient(135deg,#fff 0%,#fdf2f8 100%);border:1px solid var(--border);border-radius:24px;transition:all .4s ease;position:relative;overflow:hidden}'+
+      '.love-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(189,49,147,.15)}'+
+      '.wish-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:all .3s ease;cursor:pointer}'+
+      '.wish-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(189,49,147,.12)}'+
+      '.timeline-dot{width:16px;height:16px;border-radius:50%;background:var(--accent);position:relative}'+
+      '.timeline-dot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent);animation:pulseHeart 2s infinite}'+
+      '.section-bg{background:radial-gradient(800px 400px at 20% 0%,var(--accent-soft),transparent 70%),radial-gradient(600px 300px at 80% 100%,rgba(212,165,116,.1),transparent 60%),var(--bg)}'+
+      '.letter-envelope{background:linear-gradient(135deg,#fdf2f8,#fce7f3);border-radius:16px;padding:40px;position:relative;border:1px solid rgba(189,49,147,.2)}'+
+      '.letter-envelope::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:60px solid transparent;border-right:60px solid transparent;border-top:40px solid rgba(189,49,147,.15)}'+
+      'button{font-family:inherit}';
+    document.head.appendChild(s);
+  })();
+  </script>
+</head>
+<body>
+<div style="background-color:transparent;box-sizing:border-box;">
+
+<!-- Floating Background Hearts Container -->
+<div id="bgHearts" style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden"></div>
+
+<!-- HERO SECTION -->
+<section class="section-bg" style="position:relative;padding:100px 24px 80px;text-align:center;overflow:hidden">
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto">
+    
+    <!-- Animated Balloons SVG -->
+    <div style="display:flex;justify-content:center;gap:40px;margin-bottom:40px;align-items:flex-end">
+      <svg width="60" height="120" viewBox="0 0 60 120" style="animation:balloonFloat 3s ease-in-out infinite">
+        <defs>
+          <linearGradient id="balloon1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f472b6"/>
+            <stop offset="100%" style="stop-color:#bd3193"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="30" cy="40" rx="25" ry="35" fill="url(#balloon1)"/>
+        <polygon points="30,75 25,82 35,82" fill="#bd3193"/>
+        <path d="M30,82 Q20,100 30,120" stroke="#bd3193" stroke-width="2" fill="none"/>
+      </svg>
+      
+      <svg width="70" height="130" viewBox="0 0 60 120" style="animation:balloonFloat 3.5s ease-in-out infinite 0.5s">
+        <defs>
+          <linearGradient id="balloon2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#38bdf8"/>
+            <stop offset="100%" style="stop-color:#0891b2"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="30" cy="40" rx="25" ry="35" fill="url(#balloon2)"/>
+        <polygon points="30,75 25,82 35,82" fill="#0891b2"/>
+        <path d="M30,82 Q40,100 30,120" stroke="#0891b2" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Main Title -->
+    <p class="script" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 8px;">Happy Birthday</p>
+    <h1 class="gradient-text" style="font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 24px;">
+      Celebrating Someone Special
+    </h1>
+    <p style="font-size: 1.25rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px;">
+      May your day be filled with endless joy, laughter, and beautiful memories. Here's to another wonderful year!
+    </p>
+
+    <!-- Interactive Trigger Buttons -->
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <button onclick="triggerConfetti()" class="heart-btn" style="background: var(--accent); color: white; border: none; padding: 14px 28px; border-radius: 9999px; font-weight: 600; box-shadow: 0 10px 25px rgba(189,49,147,0.3);">
+        🎉 Celebrate with Confetti
+      </button>
+      <button onclick="spawnHeart(event)" class="heart-btn" style="background: white; color: var(--accent); border: 1px solid var(--border); padding: 14px 28px; border-radius: 9999px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        💖 Send Love
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- LETTER SECTION -->
+<section style="max-width: 800px; margin: 60px auto; padding: 0 24px;">
+  <div class="letter-envelope reveal">
+    <h2 class="script" style="font-size: 2.25rem; color: var(--accent); margin-bottom: 16px;">A Special Note</h2>
+    <p style="color: var(--text); font-size: 1.1rem; margin-bottom: 16px;">
+      On this special day, I wanted to take a moment to celebrate you. You bring so much light and positivity into the lives of everyone around you.
+    </p>
+    <p style="color: var(--text); font-size: 1.1rem; margin-bottom: 0;">
+      Wishing you happiness, success, and good health in the year ahead!
+    </p>
+  </div>
+</section>
+
+<!-- Interactive Script -->
+<script>
+// Reveal elements on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Spawn hearts on click
+function spawnHeart(e) {
+  const heart = document.createElement('div');
+  heart.className = 'floating-heart';
+  heart.innerHTML = '❤️';
+  const x = e ? e.clientX : window.innerWidth / 2;
+  const y = e ? e.clientY : window.innerHeight / 2;
+  heart.style.left = (x - 12) + 'px';
+  heart.style.top = (y - 12) + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}
+
+// Trigger Confetti effect
+function triggerConfetti() {
+  const colors = ['#bd3193', '#0891b2', '#e8b4c8', '#d4a574', '#f472b6'];
+  for (let i = 0; i < 50; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti-piece';
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.width = Math.random() * 8 + 6 + 'px';
+    confetti.style.height = Math.random() * 10 + 8 + 'px';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDuration = Math.random() * 2 + 2 + 's';
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 4000);
+  }
+}
+</script>
+
+</div>
+</body>
+</html>
