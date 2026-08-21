@@ -1,0 +1,2973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fdf9fb">
+  <meta
+    name="description"
+    content="A special birthday celebration for Regina Bobis."
+  >
+
+  <title>Happy 29th Birthday, Regina ❤️</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #fdf9fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #bd3193;
+      --accent-soft: rgba(189, 49, 147, 0.14);
+      --accent2: #0891b2;
+      --accent2-soft: rgba(8, 145, 178, 0.14);
+      --border: rgba(15, 23, 42, 0.07);
+      --rose: #e8b4c8;
+      --gold: #d4a574;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Urbanist", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .script {
+      font-family: "Dancing Script", cursive;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        100deg,
+        var(--accent),
+        #e879b5,
+        var(--gold)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulseHeart {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes balloonFloat {
+      0% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(3deg);
+      }
+
+      100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cakeGlow {
+      0%,
+      100% {
+        filter: drop-shadow(
+          0 0 8px rgba(212, 165, 116, 0.4)
+        );
+      }
+
+      50% {
+        filter: drop-shadow(
+          0 0 20px rgba(212, 165, 116, 0.8)
+        );
+      }
+    }
+
+    @keyframes flameFlicker {
+      0%,
+      100% {
+        transform: scaleY(1) scaleX(1);
+      }
+
+      25% {
+        transform: scaleY(1.1) scaleX(0.9);
+      }
+
+      50% {
+        transform: scaleY(0.9) scaleX(1.1);
+      }
+
+      75% {
+        transform: scaleY(1.05) scaleX(0.95);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .heart-btn {
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .heart-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .heart-btn:active {
+      transform: scale(0.96);
+    }
+
+    .heart-btn:focus-visible {
+      outline: 3px solid rgba(189, 49, 147, 0.35);
+      outline-offset: 4px;
+    }
+
+    .floating-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUp 4s ease-out forwards;
+    }
+
+    .confetti-piece {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      animation: confettiFall linear forwards;
+    }
+
+    /* =========================
+       BACKGROUNDS / CARDS
+    ========================= */
+
+    .section-bg {
+      background:
+        radial-gradient(
+          800px 400px at 20% 0%,
+          var(--accent-soft),
+          transparent 70%
+        ),
+        radial-gradient(
+          600px 300px at 80% 100%,
+          rgba(212, 165, 116, 0.1),
+          transparent 60%
+        ),
+        var(--bg);
+    }
+
+    .love-card {
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #fdf2f8 100%
+        );
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .love-card:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 20px 60px rgba(189, 49, 147, 0.15);
+    }
+
+    .wish-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .wish-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 40px rgba(189, 49, 147, 0.12);
+    }
+
+    .letter-envelope {
+      background:
+        linear-gradient(
+          135deg,
+          #fdf2f8,
+          #fce7f3
+        );
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+      border: 1px solid rgba(189, 49, 147, 0.2);
+      box-shadow:
+        0 20px 60px rgba(189, 49, 147, 0.08);
+    }
+
+    .letter-envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-top: 40px solid rgba(189, 49, 147, 0.15);
+    }
+
+    /* =========================
+       TIMELINE
+    ========================= */
+
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: relative;
+    }
+
+    .timeline-dot::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      animation: pulseHeart 2s infinite;
+    }
+
+    /* =========================
+       BACKGROUND HEARTS
+    ========================= */
+
+    #bgHearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+      .hero-section {
+        padding:
+          70px 18px 60px !important;
+      }
+
+      .balloons {
+        gap: 12px !important;
+        transform: scale(0.8);
+        margin-bottom: 15px !important;
+      }
+
+      .letter-envelope {
+        padding: 28px 20px;
+      }
+
+      .letter-envelope::before {
+        border-left-width: 45px;
+        border-right-width: 45px;
+        border-top-width: 30px;
+      }
+
+      .timeline {
+        padding-left: 34px !important;
+      }
+
+      .timeline .timeline-dot {
+        left: -34px !important;
+      }
+
+      .birthday-info {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .birthday-info .love-card {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Background Hearts -->
+  <div id="bgHearts" aria-hidden="true"></div>
+
+  <!-- =========================
+       HERO SECTION
+  ========================= -->
+
+  <section
+    class="section-bg hero-section"
+    style="
+      position:relative;
+      padding:100px 24px 80px;
+      text-align:center;
+      overflow:hidden;
+    "
+  >
+    <div
+      style="
+        position:relative;
+        z-index:2;
+        max-width:900px;
+        margin:0 auto;
+      "
+    >
+
+      <!-- Balloons -->
+
+      <div
+        class="balloons"
+        style="
+          display:flex;
+          justify-content:center;
+          gap:40px;
+          margin-bottom:40px;
+          align-items:flex-end;
+        "
+        aria-hidden="true"
+      >
+
+        <!-- Balloon 1 -->
+        <svg
+          width="60"
+          height="120"
+          viewBox="0 0 60 120"
+          style="
+            animation:balloonFloat 3s ease-in-out infinite;
+          "
+        >
+          <defs>
+            <linearGradient
+              id="balloon1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#f472b6"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#bd3193"
+              />
+            </linearGradient>
+          </defs>
+
+          <ellipse
+            cx="30"
+            cy="35"
+            rx="25"
+            ry="32"
+            fill="url(#balloon1)"
+          />
+
+          <polygon
+            points="25,67 30,75 35,67"
+            fill="#bd3193"
+          />
+
+          <path
+            d="M30 75 Q25 90 30 105 Q35 115 30 120"
+            stroke="#9ca3af"
+            stroke-width="1.5"
+            fill="none"
+          />
+
+          <ellipse
+            cx="22"
+            cy="25"
+            rx="6"
+            ry="10"
+            fill="rgba(255,255,255,.3)"
+            transform="rotate(-20 22 25)"
+          />
+        </svg>
+
+        <!-- Balloon 2 -->
+        <svg
+          width="70"
+          height="140"
+          viewBox="0 0 70 140"
+          style="
+            animation:
+              balloonFloat 3.5s ease-in-out infinite .3s;
+          "
+        >
+          <defs>
+            <linearGradient
+              id="balloon2"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#fcd34d"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#d4a574"
+              />
+            </linearGradient>
+          </defs>
+
+          <ellipse
+            cx="35"
+            cy="40"
+            rx="28"
+            ry="36"
+            fill="url(#balloon2)"
+          />
+
+          <polygon
+            points="29,76 35,85 41,76"
+            fill="#d4a574"
+          />
+
+          <path
+            d="M35 85 Q28 105 35 125 Q42 135 35 140"
+            stroke="#9ca3af"
+            stroke-width="1.5"
+            fill="none"
+          />
+
+          <ellipse
+            cx="26"
+            cy="28"
+            rx="7"
+            ry="12"
+            fill="rgba(255,255,255,.35)"
+            transform="rotate(-20 26 28)"
+          />
+        </svg>
+
+        <!-- Balloon 3 -->
+        <svg
+          width="60"
+          height="120"
+          viewBox="0 0 60 120"
+          style="
+            animation:
+              balloonFloat 3.2s ease-in-out infinite .6s;
+          "
+        >
+          <defs>
+            <linearGradient
+              id="balloon3"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#f9a8d4"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#ec4899"
+              />
+            </linearGradient>
+          </defs>
+
+          <ellipse
+            cx="30"
+            cy="35"
+            rx="25"
+            ry="32"
+            fill="url(#balloon3)"
+          />
+
+          <polygon
+            points="25,67 30,75 35,67"
+            fill="#ec4899"
+          />
+
+          <path
+            d="M30 75 Q35 90 30 105 Q25 115 30 120"
+            stroke="#9ca3af"
+            stroke-width="1.5"
+            fill="none"
+          />
+
+          <ellipse
+            cx="22"
+            cy="25"
+            rx="6"
+            ry="10"
+            fill="rgba(255,255,255,.3)"
+            transform="rotate(-20 22 25)"
+          />
+        </svg>
+      </div>
+
+      <p
+        style="
+          font-size:13px;
+          letter-spacing:.25em;
+          text-transform:uppercase;
+          color:var(--accent);
+          font-weight:600;
+          margin-bottom:16px;
+        "
+      >
+        A Special Day For Someone Extraordinary
+      </p>
+
+      <h1
+        style="
+          font-size:clamp(42px,7vw,72px);
+          font-weight:800;
+          line-height:1.1;
+          margin:0 0 12px;
+        "
+      >
+        Happy Birthday
+      </h1>
+
+      <h2
+        class="script gradient-text"
+        style="
+          font-size:clamp(48px,9vw,96px);
+          margin:0 0 20px;
+          line-height:1;
+        "
+      >
+        My Love
+      </h2>
+
+      <p
+        style="
+          font-size:20px;
+          color:var(--muted);
+          max-width:500px;
+          margin:0 auto 32px;
+        "
+      >
+        <strong style="color:var(--text)">
+          Regina Bobis
+        </strong>
+        &mdash;
+        today the world celebrates
+        <em>you</em>
+      </p>
+
+      <!-- Birthday Cake -->
+
+      <div
+        style="
+          display:flex;
+          justify-content:center;
+          margin-bottom:32px;
+        "
+        aria-hidden="true"
+      >
+        <svg
+          width="220"
+          height="180"
+          viewBox="0 0 220 180"
+          style="
+            animation:cakeGlow 3s ease-in-out infinite;
+            max-width:100%;
+          "
+        >
+          <defs>
+
+            <linearGradient
+              id="cakeLayer1"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#fdf2f8"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#fce7f3"
+              />
+            </linearGradient>
+
+            <linearGradient
+              id="cakeLayer2"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#fbcfe8"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#f9a8d4"
+              />
+            </linearGradient>
+
+            <linearGradient
+              id="cakeTop"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#fff"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#fdf2f8"
+              />
+            </linearGradient>
+
+            <linearGradient
+              id="flameGrad"
+              x1="0%"
+              y1="100%"
+              x2="0%"
+              y2="0%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color:#f97316"
+              />
+              <stop
+                offset="50%"
+                style="stop-color:#fbbf24"
+              />
+              <stop
+                offset="100%"
+                style="stop-color:#fef08a"
+              />
+            </linearGradient>
+
+          </defs>
+
+          <ellipse
+            cx="110"
+            cy="170"
+            rx="100"
+            ry="10"
+            fill="#e5e7eb"
+          />
+
+          <rect
+            x="20"
+            y="110"
+            width="180"
+            height="50"
+            rx="6"
+            fill="url(#cakeLayer1)"
+            stroke="#f9a8d4"
+            stroke-width="1"
+          />
+
+          <path
+            d="
+              M20 115
+              Q30 105 40 115
+              Q50 105 60 115
+              Q70 105 80 115
+              Q90 105 100 115
+              Q110 105 120 115
+              Q130 105 140 115
+              Q150 105 160 115
+              Q170 105 180 115
+              Q190 105 200 115
+              L200 120
+              L20 120 Z
+            "
+            fill="#fbcfe8"
+          />
+
+          <rect
+            x="45"
+            y="75"
+            width="130"
+            height="40"
+            rx="5"
+            fill="url(#cakeLayer2)"
+            stroke="#ec4899"
+            stroke-width="1"
+          />
+
+          <path
+            d="
+              M45 82
+              Q55 72 65 82
+              Q75 72 85 82
+              Q95 72 105 82
+              Q115 72 125 82
+              Q135 72 145 82
+              Q155 72 165 82
+              Q170 78 175 82
+              L175 88
+              L45 88 Z
+            "
+            fill="#f9a8d4"
+          />
+
+          <rect
+            x="70"
+            y="45"
+            width="80"
+            height="32"
+            rx="4"
+            fill="url(#cakeTop)"
+            stroke="#fbcfe8"
+            stroke-width="1"
+          />
+
+          <path
+            d="
+              M70 52
+              Q80 42 90 52
+              Q100 42 110 52
+              Q120 42 130 52
+              Q140 42 150 52
+              L150 58
+              L70 58 Z
+            "
+            fill="#fdf2f8"
+          />
+
+          <!-- Candles -->
+
+          <rect
+            x="85"
+            y="20"
+            width="6"
+            height="25"
+            rx="1"
+            fill="#fbbf24"
+          />
+
+          <rect
+            x="107"
+            y="15"
+            width="6"
+            height="30"
+            rx="1"
+            fill="#f472b6"
+          />
+
+          <rect
+            x="129"
+            y="20"
+            width="6"
+            height="25"
+            rx="1"
+            fill="#fbbf24"
+          />
+
+          <!-- Flames -->
+
+          <g
+            style="
+              animation:
+                flameFlicker .4s ease-in-out infinite;
+              transform-origin:88px 18px;
+            "
+          >
+            <ellipse
+              cx="88"
+              cy="14"
+              rx="5"
+              ry="9"
+              fill="url(#flameGrad)"
+            />
+          </g>
+
+          <g
+            style="
+              animation:
+                flameFlicker .45s ease-in-out infinite .1s;
+              transform-origin:110px 13px;
+            "
+          >
+            <ellipse
+              cx="110"
+              cy="8"
+              rx="6"
+              ry="11"
+              fill="url(#flameGrad)"
+            />
+          </g>
+
+          <g
+            style="
+              animation:
+                flameFlicker .5s ease-in-out infinite .2s;
+              transform-origin:132px 18px;
+            "
+          >
+            <ellipse
+              cx="132"
+              cy="14"
+              rx="5"
+              ry="9"
+              fill="url(#flameGrad)"
+            />
+          </g>
+
+          <!-- Decorations -->
+
+          <circle
+            cx="50"
+            cy="135"
+            r="4"
+            fill="#d4a574"
+          />
+
+          <circle
+            cx="80"
+            cy="140"
+            r="4"
+            fill="#bd3193"
+          />
+
+          <circle
+            cx="110"
+            cy="135"
+            r="4"
+            fill="#d4a574"
+          />
+
+          <circle
+            cx="140"
+            cy="140"
+            r="4"
+            fill="#bd3193"
+          />
+
+          <circle
+            cx="170"
+            cy="135"
+            r="4"
+            fill="#d4a574"
+          />
+
+          <text
+            x="110"
+            y="68"
+            text-anchor="middle"
+            font-family="Dancing Script, cursive"
+            font-size="22"
+            fill="#bd3193"
+            font-weight="700"
+          >
+            29
+          </text>
+        </svg>
+      </div>
+
+      <!-- Birthday Information -->
+
+      <div
+        class="birthday-info"
+        style="
+          display:flex;
+          gap:16px;
+          justify-content:center;
+          flex-wrap:wrap;
+          margin-bottom:24px;
+        "
+      >
+
+        <div
+          class="love-card"
+          style="
+            padding:20px 32px;
+            min-width:160px;
+          "
+        >
+          <div
+            style="
+              font-size:12px;
+              letter-spacing:.15em;
+              text-transform:uppercase;
+              color:var(--muted);
+              margin-bottom:4px;
+            "
+          >
+            Name
+          </div>
+
+          <div
+            style="
+              font-size:22px;
+              font-weight:700;
+              color:var(--accent);
+            "
+          >
+            Regina Bobis
+          </div>
+        </div>
+
+        <div
+          class="love-card"
+          style="
+            padding:20px 32px;
+            min-width:160px;
+          "
+        >
+          <div
+            style="
+              font-size:12px;
+              letter-spacing:.15em;
+              text-transform:uppercase;
+              color:var(--muted);
+              margin-bottom:4px;
+            "
+          >
+            Born
+          </div>
+
+          <div
+            style="
+              font-size:22px;
+              font-weight:700;
+              color:var(--accent);
+            "
+          >
+            Aug 22, 1997
+          </div>
+        </div>
+
+        <div
+          class="love-card"
+          style="
+            padding:20px 32px;
+            min-width:160px;
+          "
+        >
+          <div
+            style="
+              font-size:12px;
+              letter-spacing:.15em;
+              text-transform:uppercase;
+              color:var(--muted);
+              margin-bottom:4px;
+            "
+          >
+            Turning
+          </div>
+
+          <div
+            style="
+              font-size:22px;
+              font-weight:700;
+              color:var(--accent);
+            "
+          >
+            29 Beautiful
+          </div>
+        </div>
+
+      </div>
+
+      <button
+        onclick="createConfetti()"
+        class="heart-btn"
+        aria-label="Celebrate and make a wish"
+        style="
+          background:
+            linear-gradient(
+              135deg,
+              var(--accent),
+              #ec4899
+            );
+          color:#fff;
+          border:none;
+          padding:16px 40px;
+          border-radius:50px;
+          font-size:16px;
+          font-weight:600;
+          letter-spacing:.05em;
+          box-shadow:
+            0 8px 30px
+            rgba(189,49,147,.35);
+        "
+      >
+        <span
+          style="
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+          "
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="
+                M12 21.35
+                l-1.45-1.32
+                C5.4 15.36 2 12.28 2 8.5
+                C2 5.42 4.42 3 7.5 3
+                c1.74 0 3.41.81 4.5 2.09
+                C13.09 3.81 14.76 3 16.5 3
+                C19.58 3 22 5.42 22 8.5
+                c0 3.78-3.4 6.86-8.55 11.54
+                L12 21.35z
+              "
+            />
+          </svg>
+
+          Celebrate & Make a Wish!
+        </span>
+      </button>
+
+      <p
+        style="
+          font-size:13px;
+          color:var(--muted);
+          margin-top:12px;
+          font-style:italic;
+        "
+      >
+        Click anywhere on the page to send hearts floating up
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       LOVE STORY
+  ========================= -->
+
+  <section
+    class="reveal"
+    style="
+      padding:80px 24px;
+      max-width:900px;
+      margin:0 auto;
+    "
+  >
+
+    <div
+      style="
+        text-align:center;
+        margin-bottom:50px;
+      "
+    >
+      <p
+        style="
+          font-size:13px;
+          letter-spacing:.25em;
+          text-transform:uppercase;
+          color:var(--accent);
+          font-weight:600;
+          margin-bottom:12px;
+        "
+      >
+        Our Journey
+      </p>
+
+      <h2
+        style="
+          font-size:clamp(32px,5vw,44px);
+          font-weight:800;
+          margin:0;
+        "
+      >
+        The Story of
+        <span class="script gradient-text">
+          Us
+        </span>
+      </h2>
+    </div>
+
+    <div
+      class="timeline"
+      style="
+        position:relative;
+        padding-left:40px;
+      "
+    >
+
+      <div
+        style="
+          position:absolute;
+          left:7px;
+          top:8px;
+          bottom:8px;
+          width:2px;
+          background:
+            linear-gradient(
+              to bottom,
+              var(--accent),
+              rgba(189,49,147,.2)
+            );
+        "
+      ></div>
+
+      <!-- Timeline 1 -->
+
+      <div
+        style="
+          position:relative;
+          margin-bottom:40px;
+        "
+      >
+        <div
+          class="timeline-dot"
+          style="
+            position:absolute;
+            left:-40px;
+            top:6px;
+          "
+        ></div>
+
+        <div
+          style="
+            font-size:12px;
+            letter-spacing:.15em;
+            text-transform:uppercase;
+            color:var(--muted);
+            font-weight:600;
+          "
+        >
+          The Day You Were Born
+        </div>
+
+        <h3
+          style="
+            font-size:20px;
+            font-weight:700;
+            margin:4px 0 8px;
+            color:var(--text);
+          "
+        >
+          August 22, 1997
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+          "
+        >
+          A star was born. The world became brighter,
+          and my future became infinitely more beautiful
+          the moment you arrived.
+        </p>
+      </div>
+
+      <!-- Timeline 2 -->
+
+      <div
+        style="
+          position:relative;
+          margin-bottom:40px;
+        "
+      >
+        <div
+          class="timeline-dot"
+          style="
+            position:absolute;
+            left:-40px;
+            top:6px;
+            background:var(--gold);
+          "
+        ></div>
+
+        <div
+          style="
+            font-size:12px;
+            letter-spacing:.15em;
+            text-transform:uppercase;
+            color:var(--muted);
+            font-weight:600;
+          "
+        >
+          The Day We Met
+        </div>
+
+        <h3
+          style="
+            font-size:20px;
+            font-weight:700;
+            margin:4px 0 8px;
+            color:var(--text);
+          "
+        >
+          When Our Paths Crossed
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+          "
+        >
+          The moment I met you, I knew my life would
+          never be the same. You walked in, and suddenly
+          everything made sense.
+        </p>
+      </div>
+
+      <!-- Timeline 3 -->
+
+      <div
+        style="
+          position:relative;
+          margin-bottom:40px;
+        "
+      >
+        <div
+          class="timeline-dot"
+          style="
+            position:absolute;
+            left:-40px;
+            top:6px;
+            background:#ec4899;
+          "
+        ></div>
+
+        <div
+          style="
+            font-size:12px;
+            letter-spacing:.15em;
+            text-transform:uppercase;
+            color:var(--muted);
+            font-weight:600;
+          "
+        >
+          Every Day Since
+        </div>
+
+        <h3
+          style="
+            font-size:20px;
+            font-weight:700;
+            margin:4px 0 8px;
+            color:var(--text);
+          "
+        >
+          Falling More In Love
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+          "
+        >
+          With each passing day, I discover new reasons
+          to love you. Your laugh, your kindness, your
+          strength &mdash; you are my everything.
+        </p>
+      </div>
+
+      <!-- Timeline 4 -->
+
+      <div
+        style="
+          position:relative;
+        "
+      >
+        <div
+          class="timeline-dot"
+          style="
+            position:absolute;
+            left:-40px;
+            top:6px;
+            background:var(--accent2);
+          "
+        ></div>
+
+        <div
+          style="
+            font-size:12px;
+            letter-spacing:.15em;
+            text-transform:uppercase;
+            color:var(--muted);
+            font-weight:600;
+          "
+        >
+          Today & Always
+        </div>
+
+        <h3
+          style="
+            font-size:20px;
+            font-weight:700;
+            margin:4px 0 8px;
+            color:var(--text);
+          "
+        >
+          Forever With You
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+          "
+        >
+          On your 29th birthday, I promise to love you
+          more with each year that passes. Here's to us,
+          to you, and to forever.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       LOVE LETTER
+  ========================= -->
+
+  <section
+    class="reveal section-bg"
+    style="
+      padding:80px 24px;
+    "
+  >
+
+    <div
+      style="
+        max-width:700px;
+        margin:0 auto;
+      "
+    >
+
+      <div
+        style="
+          text-align:center;
+          margin-bottom:40px;
+        "
+      >
+        <p
+          style="
+            font-size:13px;
+            letter-spacing:.25em;
+            text-transform:uppercase;
+            color:var(--accent);
+            font-weight:600;
+            margin-bottom:12px;
+          "
+        >
+          From My Heart To Yours
+        </p>
+
+        <h2
+          style="
+            font-size:clamp(32px,5vw,44px);
+            font-weight:800;
+            margin:0;
+          "
+        >
+          A Letter For
+          <span class="script gradient-text">
+            My Love
+          </span>
+        </h2>
+      </div>
+
+      <div class="letter-envelope">
+
+        <div
+          style="
+            text-align:center;
+            margin-bottom:30px;
+          "
+        >
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            fill="var(--accent)"
+            style="
+              animation:
+                pulseHeart 1.5s ease-in-out infinite;
+            "
+            aria-hidden="true"
+          >
+            <path
+              d="
+                M12 21.35
+                l-1.45-1.32
+                C5.4 15.36 2 12.28 2 8.5
+                C2 5.42 4.42 3 7.5 3
+                c1.74 0 3.41.81 4.5 2.09
+                C13.09 3.81 14.76 3 16.5 3
+                C19.58 3 22 5.42 22 8.5
+                c0 3.78-3.4 6.86-8.55 11.54
+                L12 21.35z
+              "
+            />
+          </svg>
+        </div>
+
+        <p
+          class="script"
+          style="
+            font-size:28px;
+            color:var(--accent);
+            margin:0 0 20px;
+          "
+        >
+          My Dearest Regina,
+        </p>
+
+        <p
+          style="
+            color:var(--text);
+            margin:0 0 18px;
+            line-height:1.9;
+            font-size:16px;
+          "
+        >
+          On this beautiful day, August 22nd, as you turn
+          29, I find myself overwhelmed with gratitude for
+          having you in my life. Twenty-nine years ago, the
+          world was blessed with your presence, and I was
+          given the greatest gift I could ever imagine
+          &mdash; the chance to love you.
+        </p>
+
+        <p
+          style="
+            color:var(--text);
+            margin:0 0 18px;
+            line-height:1.9;
+            font-size:16px;
+          "
+        >
+          Love, you are the kind of person who makes
+          everything better just by being there. Your smile
+          lights up my darkest days. Your laugh is my favorite
+          sound in the entire world. Your heart &mdash; so
+          generous, so kind, so full of love &mdash; it inspires
+          me to be a better person every single day.
+        </p>
+
+        <p
+          style="
+            color:var(--text);
+            margin:0 0 18px;
+            line-height:1.9;
+            font-size:16px;
+          "
+        >
+          As you embark on this 29th year of your life, I
+          want you to know how incredibly proud I am of you.
+          For everything you've overcome, for everything
+          you've achieved, and for the amazing woman you
+          continue to become. You are stronger than you know,
+          more beautiful than you realize, and more loved than
+          you could ever imagine.
+        </p>
+
+        <p
+          style="
+            color:var(--text);
+            margin:0 0 18px;
+            line-height:1.9;
+            font-size:16px;
+          "
+        >
+          Thank you for being my partner, my best friend,
+          my confidante, and my greatest adventure. Thank
+          you for the way you love me &mdash; fiercely,
+          tenderly, and completely. Every moment with you
+          feels like coming home.
+        </p>
+
+        <p
+          style="
+            color:var(--text);
+            margin:0 0 30px;
+            line-height:1.9;
+            font-size:16px;
+          "
+        >
+          May this birthday be the beginning of your most
+          extraordinary year yet. May all your dreams take
+          flight, may your heart be filled with endless joy,
+          and may you always feel as loved as you truly are.
+        </p>
+
+        <p
+          class="script"
+          style="
+            font-size:28px;
+            color:var(--accent);
+            margin:0 0 8px;
+          "
+        >
+          Forever yours,
+        </p>
+
+        <p
+          class="script"
+          style="
+            font-size:36px;
+            color:var(--accent);
+            margin:0;
+          "
+        >
+          With all my love
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       BIRTHDAY WISHES
+  ========================= -->
+
+  <section
+    class="reveal"
+    style="
+      padding:80px 24px;
+      max-width:1000px;
+      margin:0 auto;
+    "
+  >
+
+    <div
+      style="
+        text-align:center;
+        margin-bottom:50px;
+      "
+    >
+      <p
+        style="
+          font-size:13px;
+          letter-spacing:.25em;
+          text-transform:uppercase;
+          color:var(--accent);
+          font-weight:600;
+          margin-bottom:12px;
+        "
+      >
+        Birthday Wishes
+      </p>
+
+      <h2
+        style="
+          font-size:clamp(32px,5vw,44px);
+          font-weight:800;
+          margin:0;
+        "
+      >
+        My Wishes For
+        <span class="script gradient-text">
+          You
+        </span>
+      </h2>
+    </div>
+
+    <div
+      style="
+        display:grid;
+        grid-template-columns:
+          repeat(auto-fit,minmax(260px,1fr));
+        gap:24px;
+      "
+    >
+
+      <!-- Wish 1 -->
+
+      <div
+        class="wish-card"
+        onclick="animateWish(this)"
+        tabindex="0"
+        role="button"
+      >
+        <div
+          style="
+            width:50px;
+            height:50px;
+            border-radius:14px;
+            background:var(--accent-soft);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:16px;
+          "
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--accent)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="
+                M12 21.35
+                l-1.45-1.32
+                C5.4 15.36 2 12.28 2 8.5
+                C2 5.42 4.42 3 7.5 3
+                c1.74 0 3.41.81 4.5 2.09
+                C13.09 3.81 14.76 3 16.5 3
+                C19.58 3 22 5.42 22 8.5
+                c0 3.78-3.4 6.86-8.55 11.54
+                L12 21.35z
+              "
+            />
+          </svg>
+        </div>
+
+        <h3
+          style="
+            font-size:18px;
+            font-weight:700;
+            margin:0 0 8px;
+          "
+        >
+          Endless Love
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+            line-height:1.7;
+          "
+        >
+          May your heart always be wrapped in love
+          &mdash; from me, from those who cherish you,
+          and from the beautiful life you've created.
+        </p>
+      </div>
+
+      <!-- Wish 2 -->
+
+      <div
+        class="wish-card"
+        onclick="animateWish(this)"
+        tabindex="0"
+        role="button"
+      >
+        <div
+          style="
+            width:50px;
+            height:50px;
+            border-radius:14px;
+            background:rgba(212,165,116,.15);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:16px;
+          "
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#d4a574"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="5"
+            />
+
+            <path
+              d="
+                M12 1v2
+                M12 21v2
+                M4.22 4.22l1.42 1.42
+                M18.36 18.36l1.42 1.42
+                M1 12h2
+                M21 12h2
+                M4.22 19.78l1.42-1.42
+                M18.36 5.64l1.42-1.42
+              "
+            />
+          </svg>
+        </div>
+
+        <h3
+          style="
+            font-size:18px;
+            font-weight:700;
+            margin:0 0 8px;
+          "
+        >
+          Radiant Joy
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+            line-height:1.7;
+          "
+        >
+          May happiness find you in every moment,
+          in every sunrise, and in every little surprise
+          that life has in store.
+        </p>
+      </div>
+
+      <!-- Wish 3 -->
+
+      <div
+        class="wish-card"
+        onclick="animateWish(this)"
+        tabindex="0"
+        role="button"
+      >
+        <div
+          style="
+            width:50px;
+            height:50px;
+            border-radius:14px;
+            background:var(--accent2-soft);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:16px;
+          "
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--accent2)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polygon
+              points="
+                12 2
+                15.09 8.26
+                22 9.27
+                17 14.14
+                18.18 21.02
+                12 17.77
+                5.82 21.02
+                7 14.14
+                2 9.27
+                8.91 8.26
+                12 2
+              "
+            />
+          </svg>
+        </div>
+
+        <h3
+          style="
+            font-size:18px;
+            font-weight:700;
+            margin:0 0 8px;
+          "
+        >
+          Dreams Come True
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+            line-height:1.7;
+          "
+        >
+          May every dream you hold dear find its way
+          to reality. You deserve every bit of magic
+          this world has to offer.
+        </p>
+      </div>
+
+      <!-- Wish 4 -->
+
+      <div
+        class="wish-card"
+        onclick="animateWish(this)"
+        tabindex="0"
+        role="button"
+      >
+        <div
+          style="
+            width:50px;
+            height:50px;
+            border-radius:14px;
+            background:rgba(236,72,153,.12);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:16px;
+          "
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ec4899"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="
+                M20.84 4.61
+                a5.5 5.5 0 0 0-7.78 0
+                L12 5.67
+                l-1.06-1.06
+                a5.5 5.5 0 0 0-7.78 7.78
+                l1.06 1.06
+                L12 21.23
+                l7.78-7.78
+                1.06-1.06
+                a5.5 5.5 0 0 0 0-7.78z
+              "
+            />
+          </svg>
+        </div>
+
+        <h3
+          style="
+            font-size:18px;
+            font-weight:700;
+            margin:0 0 8px;
+          "
+        >
+          Strength & Grace
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+            line-height:1.7;
+          "
+        >
+          May you always carry yourself with the same
+          strength and grace that makes you so incredibly
+          special to everyone who knows you.
+        </p>
+      </div>
+
+      <!-- Wish 5 -->
+
+      <div
+        class="wish-card"
+        onclick="animateWish(this)"
+        tabindex="0"
+        role="button"
+      >
+        <div
+          style="
+            width:50px;
+            height:50px;
+            border-radius:14px;
+            background:rgba(251,191,36,.18);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:16px;
+          "
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#d97706"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+
+        <h3
+          style="
+            font-size:18px;
+            font-weight:700;
+            margin:0 0 8px;
+          "
+        >
+          A Beautiful Home
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+            line-height:1.7;
+          "
+        >
+          May we build a life together filled with
+          warmth, laughter, and the kind of home that
+          always feels like a safe embrace.
+        </p>
+      </div>
+
+      <!-- Wish 6 -->
+
+      <div
+        class="wish-card"
+        onclick="animateWish(this)"
+        tabindex="0"
+        role="button"
+      >
+        <div
+          style="
+            width:50px;
+            height:50px;
+            border-radius:14px;
+            background:rgba(16,185,129,.15);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:16px;
+          "
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#10b981"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="
+                M12 2v4
+                M12 18v4
+                M4.93 4.93l2.83 2.83
+                M16.24 16.24l2.83 2.83
+                M2 12h4
+                M18 12h4
+                M4.93 19.07l2.83-2.83
+                M16.24 7.76l2.83-2.83
+              "
+            />
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+            />
+          </svg>
+        </div>
+
+        <h3
+          style="
+            font-size:18px;
+            font-weight:700;
+            margin:0 0 8px;
+          "
+        >
+          Adventures Ahead
+        </h3>
+
+        <p
+          style="
+            color:var(--muted);
+            margin:0;
+            line-height:1.7;
+          "
+        >
+          May our 29th year together be filled with
+          new adventures, unforgettable memories,
+          and journeys that take us places we've only
+          dreamed of.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       29 REASONS
+  ========================= -->
+
+  <section
+    class="reveal section-bg"
+    style="
+      padding:80px 24px;
+    "
+  >
+
+    <div
+      style="
+        max-width:800px;
+        margin:0 auto;
+      "
+    >
+
+      <div
+        style="
+          text-align:center;
+          margin-bottom:50px;
+        "
+      >
+        <p
+          style="
+            font-size:13px;
+            letter-spacing:.25em;
+            text-transform:uppercase;
+            color:var(--accent);
+            font-weight:600;
+            margin-bottom:12px;
+          "
+        >
+          Because You're You
+        </p>
+
+        <h2
+          style="
+            font-size:clamp(32px,5vw,44px);
+            font-weight:800;
+            margin:0;
+          "
+        >
+          29 Reasons I
+          <span class="script gradient-text">
+            Love You
+          </span>
+        </h2>
+      </div>
+
+      <div
+        id="reasonsContainer"
+        style="
+          display:grid;
+          grid-template-columns:
+            repeat(auto-fit,minmax(220px,1fr));
+          gap:14px;
+        "
+      ></div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       FINAL MESSAGE
+  ========================= -->
+
+  <section
+    class="reveal"
+    style="
+      padding:100px 24px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    "
+  >
+
+    <div
+      style="
+        position:relative;
+        z-index:2;
+        max-width:600px;
+        margin:0 auto;
+      "
+    >
+
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 24 24"
+        fill="var(--accent)"
+        style="
+          animation:
+            pulseHeart 1.5s ease-in-out infinite;
+          margin-bottom:24px;
+        "
+        aria-hidden="true"
+      >
+        <path
+          d="
+            M12 21.35
+            l-1.45-1.32
+            C5.4 15.36 2 12.28 2 8.5
+            C2 5.42 4.42 3 7.5 3
+            c1.74 0 3.41.81 4.5 2.09
+            C13.09 3.81 14.76 3 16.5 3
+            C19.58 3 22 5.42 22 8.5
+            c0 3.78-3.4 6.86-8.55 11.54
+            L12 21.35z
+          "
+        />
+      </svg>
+
+      <h2
+        class="script gradient-text"
+        style="
+          font-size:clamp(40px,7vw,64px);
+          margin:0 0 20px;
+          line-height:1.1;
+        "
+      >
+        Happy 29th Birthday
+      </h2>
+
+      <p
+        style="
+          font-size:22px;
+          color:var(--text);
+          margin:0 0 16px;
+          font-weight:600;
+        "
+      >
+        Regina Bobis, My Love
+      </p>
+
+      <p
+        style="
+          font-size:17px;
+          color:var(--muted);
+          line-height:1.9;
+          margin:0 0 32px;
+        "
+      >
+        Thank you for being you &mdash; for your beautiful
+        heart, your incredible spirit, and for making my
+        life complete. Here's to celebrating you today,
+        tomorrow, and always.
+      </p>
+
+      <div
+        style="
+          display:flex;
+          gap:16px;
+          justify-content:center;
+          flex-wrap:wrap;
+        "
+      >
+
+        <button
+          onclick="createConfetti()"
+          class="heart-btn"
+          style="
+            background:
+              linear-gradient(
+                135deg,
+                var(--accent),
+                #ec4899
+              );
+            color:#fff;
+            border:none;
+            padding:14px 32px;
+            border-radius:50px;
+            font-size:15px;
+            font-weight:600;
+            box-shadow:
+              0 8px 30px
+              rgba(189,49,147,.35);
+          "
+        >
+          Celebrate Again
+        </button>
+
+        <button
+          onclick="sendLoveHearts()"
+          class="heart-btn"
+          style="
+            background:var(--card);
+            color:var(--accent);
+            border:2px solid var(--accent);
+            padding:14px 32px;
+            border-radius:50px;
+            font-size:15px;
+            font-weight:600;
+          "
+        >
+          Send My Love
+        </button>
+
+      </div>
+
+      <p
+        class="script"
+        style="
+          font-size:28px;
+          color:var(--accent);
+          margin-top:40px;
+        "
+      >
+        With all my heart, forever & always
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer
+    style="
+      padding:40px 24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid var(--border);
+    "
+  >
+
+    <p style="margin:0">
+      Made with
+      <span
+        style="
+          color:var(--accent);
+          font-weight:700;
+        "
+      >
+        love
+      </span>
+      &mdash; August 22, 2026
+    </p>
+
+    <p
+      style="
+        margin:8px 0 0;
+        font-size:12px;
+      "
+    >
+      For Regina Bobis, on her 29th birthday
+    </p>
+
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+    (function () {
+
+      /* =========================================
+         BACKGROUND HEARTS
+      ========================================= */
+
+      const bgContainer =
+        document.getElementById("bgHearts");
+
+      const heartColors = [
+        "#bd3193",
+        "#ec4899",
+        "#f472b6",
+        "#f9a8d4",
+        "#d4a574",
+        "#fbbf24"
+      ];
+
+      function createBgHeart() {
+
+        const svg =
+          document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg"
+          );
+
+        svg.setAttribute("width", "24");
+        svg.setAttribute("height", "24");
+        svg.setAttribute("viewBox", "0 0 24 24");
+
+        svg.style.position = "absolute";
+        svg.style.left =
+          Math.random() * 100 + "%";
+        svg.style.top = "100%";
+        svg.style.opacity = "0.15";
+
+        svg.style.animation =
+          "floatUp " +
+          (8 + Math.random() * 6) +
+          "s linear infinite";
+
+        svg.style.animationDelay =
+          Math.random() * 5 + "s";
+
+        const color =
+          heartColors[
+            Math.floor(
+              Math.random() *
+              heartColors.length
+            )
+          ];
+
+        svg.innerHTML = `
+          <path
+            d="
+              M12 21.35
+              l-1.45-1.32
+              C5.4 15.36 2 12.28 2 8.5
+              C2 5.42 4.42 3 7.5 3
+              c1.74 0 3.41.81 4.5 2.09
+              C13.09 3.81 14.76 3 16.5 3
+              C19.58 3 22 5.42 22 8.5
+              c0 3.78-3.4 6.86-8.55 11.54
+              L12 21.35z
+            "
+            fill="${color}"
+          />
+        `;
+
+        bgContainer.appendChild(svg);
+      }
+
+      for (let i = 0; i < 15; i++) {
+        createBgHeart();
+      }
+
+
+      /* =========================================
+         CLICK HEARTS
+      ========================================= */
+
+      document.addEventListener(
+        "click",
+        function (event) {
+
+          if (
+            event.target.closest("button") ||
+            event.target.closest(".wish-card")
+          ) {
+            return;
+          }
+
+          createFloatingHeart(
+            event.clientX,
+            event.clientY
+          );
+        }
+      );
+
+
+      function createFloatingHeart(x, y) {
+
+        const heart =
+          document.createElement("div");
+
+        heart.className =
+          "floating-heart";
+
+        heart.style.left =
+          x - 15 + "px";
+
+        heart.style.top =
+          y - 15 + "px";
+
+        const color =
+          heartColors[
+            Math.floor(
+              Math.random() *
+              heartColors.length
+            )
+          ];
+
+        heart.innerHTML = `
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="${color}"
+            aria-hidden="true"
+          >
+            <path
+              d="
+                M12 21.35
+                l-1.45-1.32
+                C5.4 15.36 2 12.28 2 8.5
+                C2 5.42 4.42 3 7.5 3
+                c1.74 0 3.41.81 4.5 2.09
+                C13.09 3.81 14.76 3 16.5 3
+                C19.58 3 22 5.42 22 8.5
+                c0 3.78-3.4 6.86-8.55 11.54
+                L12 21.35z
+              "
+            />
+          </svg>
+        `;
+
+        document.body.appendChild(heart);
+
+        setTimeout(
+          () => heart.remove(),
+          4000
+        );
+      }
+
+
+      /* =========================================
+         SCROLL REVEAL
+      ========================================= */
+
+      const observer =
+        new IntersectionObserver(
+          function (entries) {
+
+            entries.forEach(
+              function (entry) {
+
+                if (entry.isIntersecting) {
+
+                  entry.target.classList.add(
+                    "visible"
+                  );
+
+                  observer.unobserve(
+                    entry.target
+                  );
+                }
+
+              }
+            );
+
+          },
+          {
+            threshold: 0.1
+          }
+        );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach(function (element) {
+          observer.observe(element);
+        });
+
+
+      /* =========================================
+         29 REASONS
+      ========================================= */
+
+      const reasons = [
+
+        "Your beautiful smile lights up my world",
+
+        "The way you laugh makes everything better",
+
+        "Your kind and generous heart",
+
+        "How you always believe in me",
+
+        "Your strength when things get tough",
+
+        "The warmth of your embrace",
+
+        "Your beautiful eyes I get lost in",
+
+        "How you make ordinary moments magical",
+
+        "Your passion and determination",
+
+        "The way you care for those you love",
+
+        "Your incredible sense of humor",
+
+        "How you inspire me to be better",
+
+        "Your gentle and nurturing spirit",
+
+        "The way you say my name",
+
+        "Your loyalty and devotion",
+
+        "How you make me feel safe and loved",
+
+        "Your beautiful mind and ideas",
+
+        "The way you dance like nobody's watching",
+
+        "Your courage to chase your dreams",
+
+        "How you always know what I need",
+
+        "Your patience and understanding",
+
+        "The way you love with your whole heart",
+
+        "Your amazing cooking (and everything you do)",
+
+        "How you make every day feel like an adventure",
+
+        "Your thoughtfulness in little things",
+
+        "The way you look at me",
+
+        "Your beautiful soul that shines through",
+
+        "How you've changed my life forever",
+
+        "Simply because you are YOU"
+      ];
+
+      const container =
+        document.getElementById(
+          "reasonsContainer"
+        );
+
+      reasons.forEach(
+        function (reason, index) {
+
+          const div =
+            document.createElement("div");
+
+          div.style.cssText = `
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:14px;
+            padding:16px 18px;
+            transition:all .3s;
+            cursor:pointer;
+          `;
+
+          div.tabIndex = 0;
+
+          div.innerHTML = `
+            <div
+              style="
+                display:flex;
+                align-items:flex-start;
+                gap:12px;
+              "
+            >
+              <span
+                style="
+                  font-family:
+                    'Dancing Script',
+                    cursive;
+                  font-size:24px;
+                  color:var(--accent);
+                  font-weight:700;
+                  line-height:1;
+                  min-width:28px;
+                "
+              >
+                ${index + 1}
+              </span>
+
+              <span
+                style="
+                  color:var(--text);
+                  font-size:14px;
+                  line-height:1.6;
+                "
+              >
+                ${reason}
+              </span>
+            </div>
+          `;
+
+          div.addEventListener(
+            "mouseenter",
+            function () {
+
+              this.style.borderColor =
+                "var(--accent)";
+
+              this.style.transform =
+                "translateY(-3px)";
+
+              this.style.boxShadow =
+                "0 8px 25px rgba(189,49,147,.12)";
+            }
+          );
+
+          div.addEventListener(
+            "mouseleave",
+            function () {
+
+              this.style.borderColor =
+                "var(--border)";
+
+              this.style.transform = "";
+
+              this.style.boxShadow = "";
+            }
+          );
+
+          div.addEventListener(
+            "focus",
+            function () {
+
+              this.style.borderColor =
+                "var(--accent)";
+
+              this.style.transform =
+                "translateY(-3px)";
+            }
+          );
+
+          div.addEventListener(
+            "blur",
+            function () {
+
+              this.style.borderColor =
+                "var(--border)";
+
+              this.style.transform = "";
+            }
+          );
+
+          container.appendChild(div);
+        }
+      );
+
+    })();
+
+
+    /* =========================================
+       WISH CARD ANIMATION
+    ========================================= */
+
+    function animateWish(card) {
+
+      card.style.transform =
+        "scale(1.02)";
+
+      setTimeout(
+        function () {
+          card.style.transform = "";
+        },
+        300
+      );
+    }
+
+
+    /* =========================================
+       CONFETTI
+    ========================================= */
+
+    function createConfetti() {
+
+      const colors = [
+        "#bd3193",
+        "#ec4899",
+        "#f472b6",
+        "#fbbf24",
+        "#d4a574",
+        "#0891b2",
+        "#10b981"
+      ];
+
+      for (let i = 0; i < 80; i++) {
+
+        setTimeout(
+          function () {
+
+            const piece =
+              document.createElement("div");
+
+            piece.className =
+              "confetti-piece";
+
+            piece.style.left =
+              Math.random() * 100 + "vw";
+
+            piece.style.top = "-20px";
+
+            piece.style.width =
+              5 + Math.random() * 8 + "px";
+
+            piece.style.height =
+              5 + Math.random() * 8 + "px";
+
+            piece.style.background =
+              colors[
+                Math.floor(
+                  Math.random() *
+                  colors.length
+                )
+              ];
+
+            piece.style.borderRadius =
+              Math.random() > 0.5
+                ? "50%"
+                : "2px";
+
+            piece.style.animationDuration =
+              2 + Math.random() * 3 + "s";
+
+            document.body.appendChild(piece);
+
+            setTimeout(
+              function () {
+                piece.remove();
+              },
+              5000
+            );
+
+          },
+          Math.random() * 500
+        );
+      }
+    }
+
+
+    /* =========================================
+       SEND LOVE
+    ========================================= */
+
+    function sendLoveHearts() {
+
+      const colors = [
+        "#bd3193",
+        "#ec4899",
+        "#f472b6",
+        "#d4a574"
+      ];
+
+      for (let i = 0; i < 20; i++) {
+
+        setTimeout(
+          function () {
+
+            const heart =
+              document.createElement("div");
+
+            heart.className =
+              "floating-heart";
+
+            heart.style.left =
+              (
+                window.innerWidth / 2 -
+                18 +
+                (Math.random() - 0.5) * 200
+              ) + "px";
+
+            heart.style.top =
+              (
+                window.innerHeight - 50
+              ) + "px";
+
+            const color =
+              colors[
+                Math.floor(
+                  Math.random() *
+                  colors.length
+                )
+              ];
+
+            heart.innerHTML = `
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="${color}"
+                style="
+                  animation:
+                    pulseHeart .5s
+                    ease-in-out infinite;
+                "
+                aria-hidden="true"
+              >
+                <path
+                  d="
+                    M12 21.35
+                    l-1.45-1.32
+                    C5.4 15.36 2 12.28 2 8.5
+                    C2 5.42 4.42 3 7.5 3
+                    c1.74 0 3.41.81 4.5 2.09
+                    C13.09 3.81 14.76 3 16.5 3
+                    C19.58 3 22 5.42 22 8.5
+                    c0 3.78-3.4 6.86-8.55 11.54
+                    L12 21.35z
+                  "
+                />
+              </svg>
+            `;
+
+            document.body.appendChild(heart);
+
+            setTimeout(
+              function () {
+                heart.remove();
+              },
+              4000
+            );
+
+          },
+          i * 80
+        );
+      }
+    }
+
+
+    /* =========================================
+       KEYBOARD SUPPORT FOR WISH CARDS
+    ========================================= */
+
+    document
+      .querySelectorAll(".wish-card")
+      .forEach(function (card) {
+
+        card.addEventListener(
+          "keydown",
+          function (event) {
+
+            if (
+              event.key === "Enter" ||
+              event.key === " "
+            ) {
+
+              event.preventDefault();
+
+              animateWish(this);
+            }
+          }
+        );
+
+      });
+
+
+    /* =========================================
+       WELCOME CONFETTI
+       Only happens once after loading.
+    ========================================= */
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        setTimeout(
+          function () {
+            createConfetti();
+          },
+          1800
+        );
+
+      }
+    );
+  </script>
+
+</body>
+</html>
