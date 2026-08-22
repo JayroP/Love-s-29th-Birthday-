@@ -1844,6 +1844,75 @@
   }
 }
 
+    /* ================================
+   VOLUME MUTE / UNMUTE BUTTON
+================================ */
+
+.music-volume-toggle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease;
+}
+
+.music-volume-toggle:hover {
+  background: var(--accent-soft);
+  transform: scale(1.08);
+}
+
+.music-volume-toggle:active {
+  transform: scale(.92);
+}
+
+.music-volume-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.music-volume-svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Muted state */
+.music-volume-toggle.is-muted {
+  color: var(--muted);
+}
+
+/* Hide sound waves when muted */
+.music-volume-toggle.is-muted .music-volume-svg path:nth-child(2),
+.music-volume-toggle.is-muted .music-volume-svg path:nth-child(3) {
+  display: none;
+}
+
+/* Mute slash */
+.music-volume-toggle.is-muted::after {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: rotate(-45deg);
+}
+
   </style>
 </head>
 
@@ -1928,7 +1997,19 @@
         <span style="font-size:10px;color:var(--muted);">For our memories</span>
 
         <label class="music-volume-wrap" title="Volume">
-          <span class="music-volume-icon" aria-hidden="true">
+         <button
+  class="music-volume-toggle"
+  id="musicVolumeToggle"
+  type="button"
+  aria-label="Mute"
+  title="Mute"
+>
+  <svg class="music-volume-svg" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+    <path d="M16 9.5c1.1 1.1 1.1 3.9 0 5"></path>
+    <path d="M18.5 7c2.5 2.5 2.5 7.5 0 10"></path>
+  </svg>
+</button>
             <svg viewBox="0 0 24 24">
               <path d="M4 10v4h4l5 4V6l-5 4H4z"></path>
               <path d="M16 9a4 4 0 0 1 0 6"></path>
@@ -4156,6 +4237,10 @@
   const currentTime = document.getElementById("musicCurrentTime");
   const duration = document.getElementById("musicDuration");
   const volume = document.getElementById("musicVolume");
+  const volumeToggle = document.getElementById("musicVolumeToggle");
+
+let savedVolume = parseFloat(volume.value) || 0.8;
+let isMuted = false;
   const playlistToggle = document.getElementById("musicPlaylistToggle");
   const playlistContainer = document.getElementById("musicPlaylist");
   const expandButton = document.getElementById("musicExpand");
@@ -4359,9 +4444,87 @@
     audio.currentTime = (Number(progress.value) / 100) * audio.duration;
   });
 
-  volume.addEventListener("input", function () {
-    audio.volume = Number(volume.value);
+  /* ==========================================
+   VOLUME / MUTE TOGGLE
+========================================== */
+
+function updateVolumeButton() {
+  if (!volumeToggle) return;
+
+  volumeToggle.classList.toggle("is-muted", isMuted);
+
+  volumeToggle.setAttribute(
+    "aria-label",
+    isMuted ? "Unmute" : "Mute"
+  );
+
+  volumeToggle.setAttribute(
+    "title",
+    isMuted ? "Unmute" : "Mute"
+  );
+}
+
+
+/* CLICK VOLUME ICON */
+if (volumeToggle) {
+  volumeToggle.addEventListener("click", () => {
+
+    if (!isMuted) {
+
+      // Save current volume before muting
+      savedVolume = Number(volume.value);
+
+      // If volume happens to be 0, use a sensible restore level
+      if (savedVolume <= 0) {
+        savedVolume = 0.8;
+      }
+
+      audio.muted = true;
+      isMuted = true;
+
+    } else {
+
+      // Restore previous volume
+      audio.muted = false;
+      audio.volume = savedVolume;
+      volume.value = savedVolume;
+
+      isMuted = false;
+    }
+
+    updateVolumeButton();
   });
+}
+
+
+/* VOLUME SLIDER */
+volume.addEventListener("input", () => {
+
+  const newVolume = Number(volume.value);
+
+  audio.volume = newVolume;
+
+  if (newVolume > 0) {
+
+    // Moving the slider automatically unmutes
+    savedVolume = newVolume;
+    audio.muted = false;
+    isMuted = false;
+
+  } else {
+
+    // Slider at 0 = muted
+    audio.muted = true;
+    isMuted = true;
+  }
+
+  updateVolumeButton();
+});
+
+
+/* Initial state */
+audio.volume = Number(volume.value);
+updateVolumeButton();
 
   audio.addEventListener("loadedmetadata", function () {
     duration.textContent = formatTime(audio.duration);
